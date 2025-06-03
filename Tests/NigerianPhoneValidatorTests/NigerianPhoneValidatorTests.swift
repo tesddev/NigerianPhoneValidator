@@ -7,8 +7,8 @@ final class NigerianPhoneValidatorTests: XCTestCase {
     
     func testValidNumbers() {
         let validNumbers = [
-            "08034567890",
             "8034567890",
+            "9113456789",
             "09012345678",
             "9012345678",
             "+2348034567890",
@@ -29,7 +29,9 @@ final class NigerianPhoneValidatorTests: XCTestCase {
             "0801234567890",  // Invalid prefix
             "abc1234567890",  // Contains letters
             "",               // Empty
-            "1234567890"      // Invalid prefix
+            "1234567890",     // Invalid prefix
+            "08034567890y",   // Contains letters
+            "08034567890rfffffffffffffffff" // Contains letters
         ]
         
         for number in invalidNumbers {

@@ -26,7 +26,7 @@ public final class NigerianPhoneValidator {
             case .mtn:
                 return ["0803", "0806", "0703", "0706", "0813", "0816", "0810", "0814", "0903", "0906", "0913", "0916", "0704"]
             case .airtel:
-                return ["0802", "0808", "0708", "0812", "0701", "0902", "0907", "0901", "0904", "0912"]
+                return ["0802", "0808", "0708", "0812", "0701", "0902", "0907", "0901", "0904", "0912", "0911"]
             case .glo:
                 return ["0805", "0807", "0705", "0815", "0811", "0905", "0915"]
             case .etisalat:
@@ -82,6 +82,11 @@ public final class NigerianPhoneValidator {
     /// - Returns: True if valid, false otherwise
     public func isValid(_ phoneNumber: String) -> Bool {
         let cleanNumber = cleanPhoneNumber(phoneNumber)
+        
+        // Original string should only contain digits, spaces, dashes, and +
+        if !phoneNumber.allSatisfy({ $0.isNumber || $0.isWhitespace || $0 == "-" || $0 == "+" }) {
+            return false
+        }
         
         // Check length (10 or 11 digits)
         guard cleanNumber.count == 10 || cleanNumber.count == 11 else {
