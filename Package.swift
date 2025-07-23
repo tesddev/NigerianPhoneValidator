@@ -25,7 +25,8 @@ let package = Package(
             dependencies: [],
             swiftSettings: [
                 .define("SWIFT_PACKAGE"),
-                .unsafeFlags(["-enable-library-evolution"], .when(configuration: .release))
+                .define("ARM64_SIMULATOR", .when(platforms: [.iOS], configuration: .debug)),
+                .define("X86_64_SIMULATOR", .when(platforms: [.iOS], configuration: .debug))
             ]),
         .testTarget(
             name: "NigerianPhoneValidatorTests",
