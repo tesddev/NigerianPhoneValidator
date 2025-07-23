@@ -22,7 +22,10 @@ let package = Package(
     targets: [
         .target(
             name: "NigerianPhoneValidator",
-            dependencies: []),
+            dependencies: [],
+            swiftSettings: [
+                .define("SWIFT_PACKAGE")
+            ]),
         .testTarget(
             name: "NigerianPhoneValidatorTests",
             dependencies: ["NigerianPhoneValidator"]),
