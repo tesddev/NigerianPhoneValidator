@@ -22,12 +22,7 @@ let package = Package(
     targets: [
         .target(
             name: "NigerianPhoneValidator",
-            dependencies: [],
-            swiftSettings: [
-                .define("SWIFT_PACKAGE"),
-                .define("ARM64_SIMULATOR", .when(platforms: [.iOS], configuration: .debug)),
-                .define("X86_64_SIMULATOR", .when(platforms: [.iOS], configuration: .debug))
-            ]),
+            dependencies: []),
         .testTarget(
             name: "NigerianPhoneValidatorTests",
             dependencies: ["NigerianPhoneValidator"]),
