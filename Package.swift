@@ -24,7 +24,8 @@ let package = Package(
             name: "NigerianPhoneValidator",
             dependencies: [],
             swiftSettings: [
-                .define("SWIFT_PACKAGE")
+                .define("SWIFT_PACKAGE"),
+                .unsafeFlags(["-enable-library-evolution"], .when(configuration: .release))
             ]),
         .testTarget(
             name: "NigerianPhoneValidatorTests",
